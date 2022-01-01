@@ -18,6 +18,8 @@ iptables -A FORWARD -i eth0 -o tun0 -m conntrack --ctstate ESTABLISHED,RELATED -
 
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 44158 -j DNAT --to-destination 10.8.0.2
 
+sudo ./debian10-vpn.sh
+
 echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
 
 sysctl -p
