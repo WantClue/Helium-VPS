@@ -7,7 +7,13 @@ wget https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-
 chmod +x openvpn-install.sh
 
 AUTO_INSTALL=y APPROVE_INSTALL=y APPROVE_IP=y IPV6_SUPPORT=y PORT_CHOICE=1 PROTOCOL_CHOICE=1 DNS=3 COMPRESSION_ENABLED=n CUSTOMIZE_ENC=n CLIENT=Helium-Mango PASS=1 ENDPOINT=$(curl -4 ifconfig.co) ./openvpn-install.sh
-systemctl status openvpn
+while true; do
+    if [ $(systemctl is-active openvpn) == "active" ]; then
+        break
+    fi
+
+    sleep 1
+done
 export MENU_OPTION="1"
 export CLIENT="Helium-PC"
 export PASS="1"
