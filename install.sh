@@ -25,11 +25,6 @@ touch /etc/openvpn/ccd/Helium-PC
 echo ifconfig-push 10.8.0.2 255.255.255.0 > /etc/openvpn/ccd/Helium-Mango
 echo ifconfig-push 10.8.0.4 255.255.255.0 > /etc/openvpn/ccd/Helium-PC
 
-echo client-config-dir ccd >> /etc/openvpn/server.conf
-echo route 192.168.8.0 255.255.255.0 >> /etc/openvpn/server.conf
-echo push "route 192.168.8.0 255.255.255.0"  >> /etc/openvpn/server.conf
-echo push "dhcp-option DNS 192.168.8.1" >> /etc/openvpn/server.conf
-
 iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1240
 iptables -A FORWARD -i tun0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 iptables -A FORWARD -i eth0 -o tun0 -p tcp --syn --dport 44158 -m conntrack --ctstate NEW -j ACCEPT
@@ -44,3 +39,8 @@ apt-get install iptables-persistent
 
 netfilter-persistent save
 netfilter-persistent reload
+
+echo client-config-dir ccd >> /etc/openvpn/server.conf
+echo route 192.168.8.0 255.255.255.0 >> /etc/openvpn/server.conf
+echo push "route 192.168.8.0 255.255.255.0"  >> /etc/openvpn/server.conf
+echo push "dhcp-option DNS 192.168.8.1" >> /etc/openvpn/server.conf
