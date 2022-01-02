@@ -31,10 +31,10 @@ netfilter-persistent reload
 touch /etc/openvpn/ccd/Helium-Mango
 touch /etc/openvpn/ccd/Helium-PC
 
-echo "# static IP for the Client (Client-IP Subnet)" >> /etc/openvpn/ccd/Helium-Mango
-echo ifconfig-push 10.8.0.2 255.255.255.0 > /etc/openvpn/ccd/Helium-Mango
-echo "# static IP for the Client (Client-IP Subnet)" >> /etc/openvpn/ccd/Helium-PC
-echo ifconfig-push 10.8.0.4 255.255.255.0 > /etc/openvpn/ccd/Helium-PC
+echo "# static IP for the Client (Client-IP Subnet)" > /etc/openvpn/ccd/Helium-Mango
+echo ifconfig-push 10.8.0.2 255.255.255.0 >> /etc/openvpn/ccd/Helium-Mango
+echo "# static IP for the PC (PC-IP Subnet)" > /etc/openvpn/ccd/Helium-PC
+echo ifconfig-push 10.8.0.4 255.255.255.0 >> /etc/openvpn/ccd/Helium-PC
 
 echo "# Location of the config files" >> /etc/openvpn/server.conf
 echo client-config-dir ccd >> /etc/openvpn/server.conf
