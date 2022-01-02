@@ -6,17 +6,7 @@ wget https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-
 
 chmod +x debian10-vpn.sh
 
-export AUTO_INSTALL=y 
-export APPROVE_INSTALL=y
-export APPROVE_IP=y
-export IPV6_SUPPORT=y
-export PORT_CHOICE=1
-export PROTOCOL_CHOICE=1
-export DNS=3
-export COMPRESSION_ENABLED=n
-export CUSTOMIZE_ENC=n
-export CLIENT=Helium-Client
-export PASS=1
+export AUTO_INSTALL=y APPROVE_INSTALL=y APPROVE_IP=y IPV6_SUPPORT=y PORT_CHOICE=1 PROTOCOL_CHOICE=1 DNS=3 COMPRESSION_ENABLED=n CUSTOMIZE_ENC=n CLIENT=Helium-Client PASS=1
 sudo ./debian10-vpn.sh
 
 
