@@ -1,13 +1,16 @@
 apt update
-apt upgrade
-apt install iptables
+apt upgrade -y
+apt install iptables -y
 
 wget https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh
 
 chmod +x openvpn-install.sh
 
-APPROVE_INSTALL=y APPROVE_IP=y IPV6_SUPPORT=y PORT_CHOICE=1 PROTOCOL_CHOICE=1 DNS=3 COMPRESSION_ENABLED=n CUSTOMIZE_ENC=n CLIENT=Helium-Mango PASS=1 ./openvpn-install.sh
-
+export AUTO_INSTALL=y APPROVE_INSTALL=y APPROVE_IP=y IPV6_SUPPORT=y PORT_CHOICE=1 PROTOCOL_CHOICE=1 DNS=3 COMPRESSION_ENABLED=n CUSTOMIZE_ENC=n CLIENT=Helium-Mango PASS=1 ./openvpn-install.sh
+export MENU_OPTION="1"
+export CLIENT="Helium-PC"
+export PASS="1"
+./openvpn-install.sh
 
 touch /etc/openvpn/ccd/Helium-Mango
 touch /etc/openvpn/ccd/Helium-PC
