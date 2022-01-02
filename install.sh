@@ -7,23 +7,11 @@ wget https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-
 chmod +x openvpn-install.sh
 
 AUTO_INSTALL=y APPROVE_INSTALL=y APPROVE_IP=y IPV6_SUPPORT=y PORT_CHOICE=1 PROTOCOL_CHOICE=1 DNS=3 COMPRESSION_ENABLED=n CUSTOMIZE_ENC=n CLIENT=Helium-Mango PASS=1 ENDPOINT=$(curl -4 ifconfig.co) ./openvpn-install.sh
-while true; do
-    if [ $(systemctl is-active openvpn) == "active" ]; then
-        break
-    fi
 
-    sleep 1
-done
 export MENU_OPTION="1"
 export CLIENT="Helium-PC"
 export PASS="1"
 ./openvpn-install.sh
-
-touch /etc/openvpn/ccd/Helium-Mango
-touch /etc/openvpn/ccd/Helium-PC
-
-echo ifconfig-push 10.8.0.2 255.255.255.0 > /etc/openvpn/ccd/Helium-Mango
-echo ifconfig-push 10.8.0.4 255.255.255.0 > /etc/openvpn/ccd/Helium-PC
 
 iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1240
 iptables -A FORWARD -i tun0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -35,12 +23,7 @@ echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
 
 sysctl -p
 
-apt-get install iptables-persistent
+apt-get install iptables-persistent -y
 
 netfilter-persistent save
 netfilter-persistent reload
-
-echo client-config-dir ccd >> /etc/openvpn/server.conf
-echo route 192.168.8.0 255.255.255.0 >> /etc/openvpn/server.conf
-echo push "route 192.168.8.0 255.255.255.0"  >> /etc/openvpn/server.conf
-echo push "dhcp-option DNS 192.168.8.1" >> /etc/openvpn/server.conf
