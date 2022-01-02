@@ -6,7 +6,20 @@ wget https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-
 
 chmod +x debian10-vpn.sh
 
+export AUTO_INSTALL=y 
+export APPROVE_INSTALL=y
+export APPROVE_IP=y
+export IPV6_SUPPORT=y
+export PORT_CHOICE=1
+export PROTOCOL_CHOICE=1
+export DNS=3
+export COMPRESSION_ENABLED=n
+export CUSTOMIZE_ENC=n
+export CLIENT=Helium-Client
+export PASS=1
 sudo ./debian10-vpn.sh
+
+
 
 iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1240
 
@@ -18,6 +31,17 @@ iptables -A FORWARD -i eth0 -o tun0 -m conntrack --ctstate ESTABLISHED,RELATED -
 
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 44158 -j DNAT --to-destination 10.8.0.2
 
+export AUTO_INSTALL=y 
+export APPROVE_INSTALL=y
+export APPROVE_IP=y
+export IPV6_SUPPORT=y
+export PORT_CHOICE=1
+export PROTOCOL_CHOICE=1
+export DNS=3
+export COMPRESSION_ENABLED=n
+export CUSTOMIZE_ENC=n
+export CLIENT=Helium-PC
+export PASS=1
 sudo ./debian10-vpn.sh
 
 echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
