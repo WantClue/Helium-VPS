@@ -1,4 +1,34 @@
-# Helium-VPS
-By setting up a VPS on Linode you can download this installations script and this will do all the work you need
+# Helium-VPS-Mango
 
-Don´t forget to do the Port Forwarding in your router afterwards
+By setting up a VPS on Linode you can download one of these installations scripts and they will do all the work you need.
+
+After downloading it you need to make sure it´s executable by the following command:
+
+chmod +x install.sh
+
+or for RUT240
+
+chmod +x install-rut.sh
+
+
+After this you just need to run the script by
+
+./install.sh
+
+or for RUT240
+
+./install-rut.sh
+
+Don´t forget to do the Port forwarding in your router(Mango,RUT240) afterwards
+
+Helium port: 44158
+SSH port:     22
+Dashboard -> 
+              Bobcat : 80
+              Browan : 443
+              Pisces: 443
+              Rak: NONE
+              Nebra: 80
+             
+Buy me a Beer 
+              HNT: 13xA6Ex6BZB2wWspardBJnvH3QXVFTmHnttgtfkXQHsKF4R4SXF
