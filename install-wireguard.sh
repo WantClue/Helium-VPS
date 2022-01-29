@@ -1,7 +1,7 @@
 apt update 
 apt upgrade -y
-apt install iptables 
-apt install wireguard 
+apt install iptables -y
+apt install wireguard -y
 cd/etc/wireguard/
 wg genkey | tee VPS-privatekey | wg pubkey > VPS-publickey
 wg genkey | tee hotspot-privatekey | wg pubkey > hotspot-publickey
@@ -13,6 +13,9 @@ cat hotspot-privatekey
 cat hotspot-publickey
 cat PC-privatekey
 cat PC-publickey
+
+//keys müssen irgendwo abgespeichert werden
+
 -------------------------------------------------------------------------------------
 
 
