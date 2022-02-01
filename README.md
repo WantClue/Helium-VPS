@@ -1,3 +1,9 @@
+DISCLAIMER:
+
+  IF YOU DON´T USE LINODE VPS KEEP IN MIND YOU MAY NEED TO CHANGE THE IPTABLES. YOUR ETH0 COULD NAMED DIFFERENTLY
+  
+  ---------------------------------------------------------------------------------------------------------------------------
+
 # Helium-VPS-Mango
 
 By setting up a VPS on Linode you can download one of these installations scripts and they will do all the work you need.
