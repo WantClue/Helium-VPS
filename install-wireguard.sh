@@ -7,13 +7,6 @@ wg genkey | tee VPS-privatekey | wg pubkey > VPS-publickey
 wg genkey | tee hotspot-privatekey | wg pubkey > hotspot-publickey
 wg genkey | tee PC-privatekey | wg pubkey > PC-publickey
 
-cat VPS-privatekey 
-cat VPS-publickey
-cat hotspot-privatekey
-cat hotspot-publickey
-cat PC-privatekey
-cat PC-publickey
-
 echo [Interface] >> /etc/wireguard/wg0.conf
 echo ListenPort = 51820 >> /etc/wireguard/wg0.conf
 echo PrivateKey = >> /etc/wireguard/wg0.conf cat VPS-privatekey >> /etc/wireguard/wg0.conf
@@ -44,3 +37,17 @@ sysctl -p
 systemctl start wg-quick@wg0
 systemctl status wg-quick@wg0.service
 
+echo "now you need to copy these keys"
+echo ""
+echo "VPS-privatekey"
+cat VPS-privatekey
+echo "VPS-publickey"
+cat VPS-publickey
+echo "hotspos-privatekey"
+cat hotspot-privatekey
+echo "hotspot-publickey"
+cat hotspot-publickey
+echo "PC-privatekey"
+cat PC-privatekey
+echo "PC-publickey"
+cat PC-publickey
