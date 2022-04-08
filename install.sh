@@ -45,5 +45,5 @@ echo push '"route 192.168.8.0 255.255.255.0"'  >> /etc/openvpn/server.conf
 echo "# DNS-Server for Clients (Mango)">>/etc/openvpn/server.conf
 echo push '"dhcp-option DNS 192.168.8.1"' >> /etc/openvpn/server.conf
 
-echo "By me a Beer(HNT) if you like this script :)"
+echo "Buy me a Beer(HNT) if you like this script :)"
 echo "133xDssZVQGwHN7z98RVHEXCDj5aFikWu9VaTT8tCSyKcBrFh51"
